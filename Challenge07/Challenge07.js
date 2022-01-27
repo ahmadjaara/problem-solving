@@ -3,12 +3,12 @@
 // 1) ---------------------
 //
 //  using the (objLat) function; return the formatted text based on the provided object as the example:
- let obj = {
-     firstName: 'Jaber',
-     lastName: 'Saleh',
-     age: 67,
-     hobby: 'Gaming and Sleeping'
- }
+//  let obj = {
+//      firstName: 'jaber',
+//      lastName: 'saleh',
+//      age: 67,
+//      hobby: 'Gaming and Sleeping'
+//  }
 //   ===>
 //   'my name is Jaber Saleh I am 67 YO, and I love Gaming and Sleeping.'
 
@@ -20,10 +20,13 @@
 
 const objLat = (obj) => {
     // write your code here
-  let c= ("my name is "+ obj.firstName +" "+ obj.lastName+" I am "+ obj.age +" YO,"+" and I love "+obj.hobby+".");
+    let uppercase1 = obj.firstName.charAt (0).toUpperCase() + obj.firstName.slice(1);
+    let uppercase2 = obj.lastName.charAt (0).toUpperCase () + obj.lastName.slice(1);
+
+  let c= "my name is "+ uppercase1 +" "+ uppercase2+" I am "+ obj.age +" YO,"+" and I love "+obj.hobby+".";
  return c;
 };
-objLat(obj);
+
 
 
 
@@ -116,7 +119,7 @@ const cvFormatter = (arr) => {
             }
         }
 
-    console.log(arr);
+    return arr;
 };
 
 

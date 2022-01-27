@@ -56,6 +56,7 @@ let recipeInfo = {
 const getEntries = (obj) => {
   // write your code here
   let k =""
+  Object.keys(obj);
   for(let i=0;i<obj.ingredients.length;i++){
     if(i==obj.ingredients.length-1){
         k=k +obj.ingredients[i];
@@ -64,10 +65,9 @@ const getEntries = (obj) => {
 }
 
   };
-  let arr =["name: "+obj.name,"ingredients: " + k,"cookTime: "+obj.cookTime,"price: "+obj.price];
+  let arr =[Object.keys(obj)[0]+": "+obj.name,Object.keys(obj)[1] +": "+ k,Object.keys(obj)[2]+": "+obj.cookTime,Object.keys(obj)[3]+": "+obj.price];
    return arr;
 };
-console.log(getEntries(recipeInfo));
 
 // -------------------------------------------------------------------------------------------------------
 // Challenge 03
