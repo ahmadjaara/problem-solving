@@ -12,12 +12,12 @@
 
 // You given an object that contain name
 // and age of some customers as below :
-
-// {
-//     "Romio Joliat": 35,
-//     "Mario Ristrova": 39,
-//     "Sofia firnando": 50,
-// }
+let names =
+{
+    "Romio Joliat": 35,
+    "Mario Ristrova": 39,
+    "Sofia firnando": 50,
+}
 
 // You have to return an array of strings that follow the below syntax
 //
@@ -26,9 +26,18 @@
 
 // -------------------------------------------------------------------------------------------------------
 
-// const customerAndAge = (obj) => {
-//   // write your code here
-// };
+const customerAndAge = (obj) => {
+  // write your code here
+let x= Object.keys(obj); 
+let y =Object.values(obj);
+let z =[]
+for(let i=0;i<x.length;i++){
+z[i]="Customer Name :"+x[i]+" , "+"Age :"+y[i];
+}
+
+return z;
+};
+// customerAndAge(customer);
 
 // -------------------------------------------------------------------------------------------------------
 // Challenge 02
@@ -53,21 +62,35 @@ let recipeInfo = {
 
 // -------------------------------------------------------------------------------------------------------
 
-const getEntries = (obj) => {
+let getEntries= (obj)=>{
   // write your code here
-  let k =""
-  Object.keys(obj);
-  for(let i=0;i<obj.ingredients.length;i++){
-    if(i==obj.ingredients.length-1){
-        k=k +obj.ingredients[i];
-    }  
-   else{ k=k +obj.ingredients[i]+","
-}
+exercise03
+//   let k =""
+//   for(let i=0;i<obj.ingredients.length;i++){
+//     if(i==obj.ingredients.length-1){
+//         k=k +obj.ingredients[i];
+//     }  
+//    else{ k=k +obj.ingredients[i]+","
+// }
 
-  };
-  let arr =[Object.keys(obj)[0]+": "+obj.name,Object.keys(obj)[1] +": "+ k,Object.keys(obj)[2]+": "+obj.cookTime,Object.keys(obj)[3]+": "+obj.price];
-   return arr;
+//   };
+  
+//   let arr =[Object.keys(obj)[0]+": "+obj.name, Object.keys(obj)[1]+": " + k,Object.keys(obj)[2]+": "+obj.cookTime,Object.keys(obj)[3]+": "+obj.price];
+//    return arr;
+// };
+// console.log(getEntries(recipeInfo));
+let b=[];
+let i =0;
+for (const [key, value] of Object.entries(obj)) {
+b[i]=`${key}: ${value}`;
+i++;
+}
+return b ;
 };
+// getEntries(recipeInfo);
+
+
+ main
 
 // -------------------------------------------------------------------------------------------------------
 // Challenge 03
@@ -107,10 +130,21 @@ const courses = [
 const getInfo = (arr) => {
   let coursesName = [];
   let studentsName = [];
+  let dnew =[];
   // write your code here
+  for (let i=0;i<arr.length;i++){
+    let d =Object.values(arr[i]);
+    coursesName[i]=d[0];
+    studentsName=studentsName.concat(d[2]);
+    // for (let j=0;j<d.Students.length){
+    //   studentsName[i]=d[2];
+    //}
+  
+  }
 
   return { coursesName, studentsName };
 };
+// console.log(getInfo(courses));
 
 //  ------------------------------------------------------------------------------------------------------
 // Challenge 04
@@ -119,6 +153,7 @@ const getInfo = (arr) => {
 // and return their info following the below syntax
 //
 // Input: ['Kalé', 'Alisha','Alphonso', 'Briana']
+// 
 // Output: 
 // [
 //   {
@@ -129,16 +164,43 @@ const getInfo = (arr) => {
 // ]
 
 //  ------------------------------------------------------------------------------------------------------
-
+ let arr=['Kalé', 'Alisha', 'Alphonso', 'Briana'];
+ let g =['Daley', 'Pru'];
 const getStudents = (arr) => {
   // write your code here
+  let coursesname1=[];
+  let output=[];
+  for (let i=0;i<courses.length;i++){
+    let d =Object.values(courses[i]);
+    
+    let namesarr =d[2];
+    for(let j=0;j<arr.length;j++){
+      for (let k=0;k<namesarr.length;k++){
+        if (arr[j]==namesarr[k]){
+          coursesname1=d[0];
+          output[j]={Student: arr[j] ,course:coursesname1};
+          
+        }
+      }
+    }
+   
+    // course: 'DotNet',
+    // Instructor: 'Keanna',
+    // Students: ['Oli', 'Gisselle', 'Pru'],
+    // GroupName: 'Lol',
+    //['DotNet','Keanna',['Oli', 'Gisselle', 'Pru'],'Lol']
 
+}
+return output;
 };
 
-// module.exports = {
-//   customerAndAge,
-//   getEntries,
-//   courses,
-//   getInfo,
-//   getStudents,
-// };
+// console.log(getStudents(arr));
+// console.log(getStudents(g));
+
+module.exports = {
+  customerAndAge,
+  getEntries,
+  courses,
+  getInfo,
+  getStudents,
+};
