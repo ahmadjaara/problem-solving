@@ -63,8 +63,7 @@ let recipeInfo = {
 // -------------------------------------------------------------------------------------------------------
 
 let getEntries= (obj)=>{
-  // write your code here
-exercise03
+// write your code here
 //   let k =""
 //   for(let i=0;i<obj.ingredients.length;i++){
 //     if(i==obj.ingredients.length-1){
@@ -89,8 +88,6 @@ return b ;
 };
 // getEntries(recipeInfo);
 
-
- main
 
 // -------------------------------------------------------------------------------------------------------
 // Challenge 03
