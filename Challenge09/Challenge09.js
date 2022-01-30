@@ -14,13 +14,17 @@
 //  [20, 54, 89, 41] ==> [30, 64, 99, 51]
 //  
 // ------------------------
-
+//let arr =[20, 54, 89, 41];
 const arrInc = (arr) => {
     let result = [];
     // write your code here
-    return result;
-}
+    arr.forEach(function(item,index,array){
+        result[index]=item+10;
+    })
+ return result;
+};
 
+// console.log(arrInc(arr));
 
 // 2) ---------------------
 // 
@@ -30,10 +34,16 @@ const arrInc = (arr) => {
 //  [5.4, 5.5 ,6.7, 6.8] ==> [5, 6, 7, 7]
 // 
 // ------------------------
+// let arr=[5.4, 5.5 ,6.7, 6.8];
 const roundDecimals = (arr) => {
     // write your code here
+    let result =[];
+arr.forEach(function(item,index,array){
+result[index]=Math.round(item);
+})
+return result;
 }
-
+// console.log(roundDecimals(arr));
 // 3) ---------------------
 // 
 //  An owner of a factory want to give bounce 100$ for the employee of production department who worked *More than* 8 hours
@@ -98,9 +108,25 @@ const roundDecimals = (arr) => {
 //
 
 // ------------------------
-const employeesBonus = (arr) => {
+const employeesBonus = (data) => {
     // write your code here
+    let result =[];
+    let z=0;
+    data.forEach(function(item,index,array){
+        if(item.workHours>8){
+           z= parseFloat(item.salary);
+            z+=100;
+            item.salary=z+"$";
+        }
+        else{
+            z= parseFloat(item.salary);
+            z+=50;
+            item.salary=z+"$"
+        }
+    })
+    return data;
 }
+// console.log(employeesBonus(data));
 
 // 4) ---------------------
 // 
@@ -110,14 +136,78 @@ const employeesBonus = (arr) => {
 // 
 // EX:
 //
-// budget = 200$
-// mouseArray = [35, 15, 75, 180, 150, 50]
-// keyBoardArray = [5, 150, 35, 120, 75, 50, 100]
+// let budget = 150;
+// let mouseArray = [35, 15, 75];
+// let keyBoardArray = [5, 150, 100];
 // 
 // ==> 200
 // ------------------------
 const mostExpensive = (budget, mouseArray, keyBoardArray) => {
     // write your code here
+   let result=[];
+   let final=[];
+   let i =mouseArray.length;
+   let j =keyBoardArray.length;
+   
+   if(i>j){
+    keyBoardArray.forEach(function(item,index,array){
+    //   result.push(item+mouseArray[0]);
+    mouseArray.forEach(function(item1,index1){
+        result.push(item+item1)
+    })
+
+    });
 }
+else if(j>i){
+    mouseArray.forEach(function(item,index,array){
+    //   result.push(item+mouseArray[0]);
+    keyBoardArray.forEach(function(item1,index1){
+        result.push(item+item1)
+    })
+
+    });
+
+}
+else{
+    mouseArray.forEach(function(item,index,array){
+        //   result.push(item+mouseArray[0]);
+        keyBoardArray.forEach(function(item1,index1){
+            result.push(item+item1)
+        })
+    
+        });
+
+}
+
+    // keyBoardArray.forEach(function(item,index,array){
+    //     result.push(item+mouseArray[1]);
+    //   });
+    //   keyBoardArray.forEach(function(item,index,array){
+    //     result.push(item+mouseArray[2]);
+    //   });
+    //   keyBoardArray.forEach(function(item,index,array){
+    //     result.push(item+mouseArray[3]);
+    //   });
+    //   keyBoardArray.forEach(function(item,index,array){
+    //     result.push(item+mouseArray[4]);
+    //   });
+    //   keyBoardArray.forEach(function(item,index,array){
+    //     result.push(item+mouseArray[5]);
+    //   });
+    //   keyBoardArray.forEach(function(item,index,array){
+    //     result.push(item+mouseArray[6]);
+    //   })
+      result.sort(function(first,last){return last-first});
+     
+      result.slice(0).forEach(function(item2){
+        let g=result;  
+        if(item2>budget){
+           result.splice(result.indexOf(item2), 1);
+          }
+      })
+return result[0];
+};
+
+//console.log(mostExpensive(budget, mouseArray, keyBoardArray))
 
 module.exports = { arrInc, roundDecimals, employeesBonus, mostExpensive };
